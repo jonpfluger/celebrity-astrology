@@ -21,7 +21,7 @@ function celebritySearch() {
     success: function(result) {
         console.log(result);
         var nameEl = $('<h2>').text(result[0].name)
-        var birthdayEl = $('<p>').text(result[0].birthday)
+        var birthdayEl = $('<p>').text("Birthday: " + result[0].birthday)
         resultsSection.append(nameEl, birthdayEl)
     },
     error: function ajaxError(jqXHR) {
