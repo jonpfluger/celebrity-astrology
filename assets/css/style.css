@@ -1,0 +1,20 @@
+header {
+    height: 100px;
+    margin: 0;
+    text-align: center;
+    background-image: linear-gradient(to right, red, blue);
+} 
+
+#Btn-container {
+    margin: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.mui-btn {
+    margin: 10px;
+}
+
+.mui-textfield {
+    border: solid 2px black;
+}
