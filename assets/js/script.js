@@ -15,12 +15,12 @@ function celebritySearch() {
   var userInput = searchBar.val()
   $.ajax({
     method: 'GET',
-    url: 'https://api.api-ninjas.com/v1/celebrity?name=' + userInput,
+    url: 'https://api.api-ninjas.com/v1/celebrity?name=' + userInput.toLowerCase(),
     headers: { 'X-Api-Key': celebrityAPIKey},
     contentType: 'application/json',
     success: function(result) {
         console.log(result);
-        var nameEl = $('<p>').text(result[0].name)
+        var nameEl = $('<h2>').text(result[0].name)
         var birthdayEl = $('<p>').text(result[0].birthday)
         resultsSection.append(nameEl, birthdayEl)
     },
@@ -37,7 +37,7 @@ function astrologySearch() {
   const settings = {
     "async": true,
     "crossDomain": true,
-    "url": "https://sameer-kumar-aztro-v1.p.rapidapi.com/?sign=" + userInput + "&day=today",
+    "url": "https://sameer-kumar-aztro-v1.p.rapidapi.com/?sign=" + userInput.toLowerCase() + "&day=today",
     "method": "POST",
     "headers": {
       "X-RapidAPI-Key": astrologyAPIKey,
@@ -47,16 +47,22 @@ function astrologySearch() {
   
   $.ajax(settings).done(function (response) {
     console.log(response);
+    var signEl = $('<h2>').text(userInput.toLowerCase())
+    var descriptionEl = $('<p>').text("Daily horoscope: " + response.description)
+    var luckyTimeEl = $('<p>').text("Lucky time: " + response.lucky_time)
+    resultsSection.append(signEl, descriptionEl, luckyTimeEl)
   });
 }
 
 
 function searchFunction(event) {
   event.preventDefault()
-  var userInput = searchBar.val()
   console.log(event, "Clicked!")
 
-  if (userInput === "capricorn" || userInput === "libra" || userInput === "aries" || userInput === "cancer" || userInput === "taurus" || userInput === "gemini" || userInput === "leo" || userInput === "virgo" || userInput === "scorpio" || userInput === "pisces" || userInput === "aquarius" || userInput === "sagittarius") {
+  var userInput = searchBar.val()
+  var userInputLowerCase = userInput.toLowerCase()
+
+  if (userInputLowerCase === "capricorn" || userInputLowerCase === "libra" || userInputLowerCase === "aries" || userInputLowerCase === "cancer" || userInputLowerCase === "taurus" || userInputLowerCase === "gemini" || userInputLowerCase === "leo" || userInputLowerCase === "virgo" || userInputLowerCase === "scorpio" || userInputLowerCase === "pisces" || userInputLowerCase === "aquarius" || userInputLowerCase === "sagittarius") {
     astrologySearch()
   } else {
     celebritySearch()
