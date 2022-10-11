@@ -9,22 +9,27 @@
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
-<body>
+<body class="background">
   <header class="mui-appbar">
     <h1>Celebrity Astrology </h1>
     <p>Created by: Jon, Jesus, and Adrienne</p>
   </header>
 
     <main>
+      <p class="description">Search For Your Favorite Celebrity To See Their Birthday!</p>
       <Grid id="Btn-container" container justifyContent="center">
           <div class="mui-textfield">
             <input id="search-bar" type="text">
           </div>
-          <button id="search-btn" class="mui-btn mui-btn--primary">Button</button>   
+          <button id="search-btn" class="mui-btn mui-btn--primary">Search</button>   
       </Grid>
 
-      <div id="results-section"></div>
-
+      <div class="card">
+        <div class="results-container">
+          <div id="results-section"></div>
+        </div>
+      </div>
+    
     </main>
 
 
