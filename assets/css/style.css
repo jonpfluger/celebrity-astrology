@@ -1,9 +1,25 @@
+* {
+color: white;
+}
+
+h1 {
+font-size: 40px;
+}
+
 header {
     height: 100px;
     margin: 0;
     text-align: center;
-    background-image: linear-gradient(to right, red, blue);
+    background-image: linear-gradient(to right, rgb(103, 124, 199), rgb(12, 12, 90));
 } 
+
+.background {
+  background: url('../images/milky-way-2695569__480.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 #Btn-container {
     margin: 25px;
@@ -16,7 +32,7 @@ header {
 }
 
 .mui-textfield {
-    border: solid 2px black;
+    border: solid 2px white;
 }
 
 .card {
@@ -31,3 +47,11 @@ header {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
   
+  #search-bar {
+    color: white;
+  }
+
+  .description {
+    text-align: center;
+    font-size: 18px;
+  }
