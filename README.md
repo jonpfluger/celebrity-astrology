@@ -3,11 +3,14 @@ This application lets a user search for a US president by name and get informati
 
 ## User Story
 
-As a user, I want to be able to search for a celebrity by name and have it return their astrological sign as well as their occupations.
+As a user, I WANT to be able to search for a celebrity by name and have it return their astrological sign as well as their occupation SO THAT I can learn new facts while having fun.
 
-GIVEN a website,
-WHEN I search for a celebrity in the search bar,
-THEN I see their astrological sign, and info about their occupations.
+## Acceptance Criteria
+
+GIVEN an application with a search bar for input,
+
+When I search for a celebrity,
+THEN I am able to see their astrological sign aswell as their occupation.
 
 ## Screenshot
 
