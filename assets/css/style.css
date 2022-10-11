@@ -35,6 +35,16 @@ header {
     border: solid 2px white;
 }
 
+.modal {
+    width: 400px;
+    height: 120px;
+    margin: 250px auto;
+    padding: 20px;
+    background-color: gray;
+    text-align: center;
+    font-size: 25px;
+}
+
 .card {
     border-color: rgb(103, 124, 199);
     width: 200px;
@@ -70,5 +80,3 @@ header {
   main {
     padding-top: 120px;
   }
-
-  
