@@ -36,7 +36,12 @@ header {
 }
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-color: rgb(103, 124, 199);
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 30px 40px rgba(248, 245, 245, 0.1);
   }
   
 .results-container {
@@ -44,7 +49,7 @@ header {
   }
 
   .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-color: rgba(0,0,0,0.2);
   }
   
   #search-bar {
@@ -55,3 +60,15 @@ header {
     text-align: center;
     font-size: 18px;
   }
+
+  .mui-appbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  main {
+    padding-top: 120px;
+  }
+
+  
