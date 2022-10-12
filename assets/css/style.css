@@ -1,19 +1,14 @@
+:root {
+    --grey: rgb(88, 88, 88);
+    --lightblue: rgb(103, 124, 199);
+    --darkblue: rgb(12, 12, 90);
+}
+
 * {
     color: white;
 }
 
-h1 {
-    font-size: 40px;
-}
-
-header {
-    height: 100px;
-    margin: 0;
-    text-align: center;
-    background-image: linear-gradient(to right, rgb(103, 124, 199), rgb(12, 12, 90));
-} 
-
-.background {
+body {
     background: url('../images/milky-way-2695569__480.jpg') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -21,18 +16,51 @@ header {
     background-size: cover;
 }
 
+header {
+    height: 100px;
+    width: 100%;
+    margin: 0;
+    position: fixed;
+    text-align: center;
+    background-image: linear-gradient(to right, var(--lightblue), var(--darkblue));
+    border-bottom: 3px black solid;
+}
+
+
+h1 {
+    font-size: 40px;
+}
+
+main {
+    padding-top: 80px;
+}
+
+#description {
+    width: 70%;
+    margin: auto;
+    padding: 5px;
+    background-image: linear-gradient(to left, var(--lightblue), var(--darkblue));
+    text-align: center;
+    font-size: 18px;
+    border: 3px black solid;
+}
+
 #Btn-container {
-    margin: 25px;
+    margin: 0px 25px;
     display: flex;
     justify-content: center;
 }
 
-.mui-btn {
-    margin: 10px;
-}
-
 .mui-textfield {
     border: solid 2px white;
+}
+
+#search-bar {
+    color: white;
+}
+
+.mui-btn {
+    margin: 10px;
 }
 
 .modal {
@@ -45,38 +73,21 @@ header {
     font-size: 25px;
 }
 
+#results-section {
+    margin: 1%;
+}
+
 .card {
-    border-color: rgb(103, 124, 199);
-    width: 200px;
-    display: flex;
-    justify-content: center;
+    border: 3px black solid;
+    background-color: var(--grey);
+    width: 30%;
+    height: 400px;
+    margin: 1%;
+    text-align: center;
     font-size: 18px;
     box-shadow: 0 30px 40px rgba(248, 245, 245, 0.1);
 }
-  
-.results-container {
-    padding: 2px 16px;
-}
 
-.card:hover {
+/* .card:hover {
     border-color: rgba(0,0,0,0.2);
-}
-  
-#search-bar {
-    color: white;
-}
-
-.description {
-    text-align: center;
-    font-size: 18px;
-}
-
-.mui-appbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-
-main {
-    padding-top: 120px;
-}
+} */

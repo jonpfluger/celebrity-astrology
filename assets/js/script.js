@@ -30,16 +30,19 @@ function celebritySearch() {
         searchBar.val("")
       } else {
         console.log(result);
+        var cardEl = $('<div>').addClass('card')
         var nameEl = $('<h2>').text(result[0].name)
         var birthdayEl = $('<p>').text("Birthday: " + result[0].birthday)
-        resultsSection.append(nameEl, birthdayEl)
+        cardEl.append(nameEl, birthdayEl)
 
         // occupations
         var occupationArr = result[0].occupation
         for (let i = 0; i < occupationArr.length; i++) {
           var occupationEl = $('<p>').text(occupationArr[i])
-          resultsSection.append(occupationEl)
+          cardEl.append(occupationEl)
         }
+
+        resultsSection.append(cardEl)
 
         // clears the user input
         searchBar.val("")
@@ -79,11 +82,13 @@ function astrologySearch() {
   
   $.ajax(settings).done(function (response) {
     console.log(response);
+    var cardEl = $('<div>').addClass('card')
     var signEl = $('<h2>').text(userInputTrimmed)
     var dateRangeEl = $('<p>').text("Date Range: " + response.date_range)
     var descriptionEl = $('<p>').text("Daily horoscope: " + response.description)
     var luckyTimeEl = $('<p>').text("Lucky time: " + response.lucky_time)
-    resultsSection.append(signEl, dateRangeEl, descriptionEl, luckyTimeEl)
+    cardEl.append(signEl, dateRangeEl, descriptionEl, luckyTimeEl)
+    resultsSection.append(cardEl)
 
     // clears the user input
     searchBar.val("")
