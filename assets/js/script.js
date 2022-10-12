@@ -17,7 +17,6 @@ function celebritySearch() {
     headers: { 'X-Api-Key': celebrityAPIKey},
     contentType: 'application/json',
     success: function(result) {
-      console.log(result);
       if (result.length === 0) {
         // initialize modal element
         var modalEl = document.createElement('div')
@@ -30,9 +29,17 @@ function celebritySearch() {
         // clears the user input
         searchBar.val("")
       } else {
+        console.log(result);
         var nameEl = $('<h2>').text(result[0].name)
         var birthdayEl = $('<p>').text("Birthday: " + result[0].birthday)
         resultsSection.append(nameEl, birthdayEl)
+
+        // occupations
+        var occupationArr = result[0].occupation
+        for (let i = 0; i < occupationArr.length; i++) {
+          var occupationEl = $('<p>').text(occupationArr[i])
+          resultsSection.append(occupationEl)
+        }
 
         // clears the user input
         searchBar.val("")
@@ -55,7 +62,6 @@ function celebritySearch() {
 }
 
 
-
 function astrologySearch() {
   var userInput = searchBar.val()
   var userInputLowerCase = userInput.toLowerCase()
@@ -72,7 +78,7 @@ function astrologySearch() {
   };
   
   $.ajax(settings).done(function (response) {
-    // console.log(response);
+    console.log(response);
     var signEl = $('<h2>').text(userInputTrimmed)
     var descriptionEl = $('<p>').text("Daily horoscope: " + response.description)
     var luckyTimeEl = $('<p>').text("Lucky time: " + response.lucky_time)
