@@ -80,9 +80,10 @@ function astrologySearch() {
   $.ajax(settings).done(function (response) {
     console.log(response);
     var signEl = $('<h2>').text(userInputTrimmed)
+    var dateRangeEl = $('<p>').text("Date Range: " + response.date_range)
     var descriptionEl = $('<p>').text("Daily horoscope: " + response.description)
     var luckyTimeEl = $('<p>').text("Lucky time: " + response.lucky_time)
-    resultsSection.append(signEl, descriptionEl, luckyTimeEl)
+    resultsSection.append(signEl, dateRangeEl, descriptionEl, luckyTimeEl)
 
     // clears the user input
     searchBar.val("")
