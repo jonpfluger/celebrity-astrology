@@ -79,7 +79,7 @@ main {
 
 .card {
     border: 3px black solid;
-    background-color: var(--grey);
+    background-color: rgba(88, 88, 88, 0.8);
     width: 30%;
     height: 400px;
     margin: 1%;

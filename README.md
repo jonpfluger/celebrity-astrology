@@ -3,24 +3,30 @@ This application lets a user search for a Celebrity  by name and get information
 
 ## User Story
 
-As a user, I WANT to be able to search for a celebrity by name and have it return their birthday, astrological sign, & occupation. When I search an astrological sign, I want to see information about the sign SO THAT I can learn new facts while having fun. 
+As a user, I want to be able to search for a celebrity by name and have it return information about their birthday and occupation(s). When I search an astrological sign, I want to see information about the sign inluding date range, a daily horoscope, and lucky time.
+
+Our motivation for this site was that we wanted to see possible correlations between a person's astrological sign and the type of occupations they had in their life.
 
 ## Acceptance Criteria
 
-GIVEN an application with a search bar for input,
+Given an application with a search bar for input,
 
-WHEN I search for something,
-THEN I see results in a card style format with colored headers
+when I search for something,
 
-WHEN I search for a celebrity,
-THEN I am able to see their birthday, occupation, aswell as their astrological sign.
+then I see results in a card style format with colored headers.
 
-WHEN I search for an astrological sign
-THEN I am able to see the daily horoscope of the sign and its lucky time.
+When I search for a celebrity,
 
+then I am able to see their birthday and occupation(s).
 
+When I search for an astrological sign,
+
+then I am able to see the date range of that sign, a daily horoscope, and its lucky time.
 
 
 ## Screenshot
 
 ## Link
+
+https://jonpfluger.github.io/celebrity-astrology/
+
