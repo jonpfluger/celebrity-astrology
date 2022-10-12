@@ -1,9 +1,9 @@
 * {
-color: white;
+    color: white;
 }
 
 h1 {
-font-size: 40px;
+    font-size: 40px;
 }
 
 header {
@@ -14,11 +14,11 @@ header {
 } 
 
 .background {
-  background: url('../images/milky-way-2695569__480.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    background: url('../images/milky-way-2695569__480.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 #Btn-container {
@@ -52,31 +52,31 @@ header {
     justify-content: center;
     font-size: 18px;
     box-shadow: 0 30px 40px rgba(248, 245, 245, 0.1);
-  }
+}
   
 .results-container {
     padding: 2px 16px;
-  }
+}
 
-  .card:hover {
+.card:hover {
     border-color: rgba(0,0,0,0.2);
-  }
+}
   
-  #search-bar {
+#search-bar {
     color: white;
-  }
+}
 
-  .description {
+.description {
     text-align: center;
     font-size: 18px;
-  }
+}
 
-  .mui-appbar {
+.mui-appbar {
     position: fixed;
     top: 0;
     width: 100%;
-  }
+}
 
-  main {
+main {
     padding-top: 120px;
-  }
+}
