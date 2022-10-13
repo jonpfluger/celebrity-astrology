@@ -9,10 +9,7 @@ var pastSearches = $('#past-searches');
 var userInputArr = [];
 
 
-function celebritySearch(userInputTrimmed) {
-  // var userInput = searchBar.val();
-  // var userInputLowerCase = userInput.toLowerCase();
-  // var userInputTrimmed = userInputLowerCase.trim();
+function celebritySearch(userInputTrimmed, isPageLoading) {
   $.ajax({
     method: 'GET',
     url: 'https://api.api-ninjas.com/v1/celebrity?name=' + userInputTrimmed,
@@ -20,16 +17,18 @@ function celebritySearch(userInputTrimmed) {
     contentType: 'application/json',
     success: function(result) {
       if (result.length === 0) {
-        // initialize modal element
-        var modalEl = document.createElement('div');
-        modalEl.classList.add("modal")
-        modalEl.textContent = "Invalid search. Please try again. Click anywhere to continue."
+        if (!isPageLoading) {
+          // initialize modal element
+          var modalEl = document.createElement('div');
+          modalEl.classList.add("modal")
+          modalEl.textContent = "Invalid search. Please try again. Click anywhere to continue."
 
-        // show modal
-        mui.overlay('on', modalEl);
+          // show modal
+          mui.overlay('on', modalEl);
 
-        // clears the user input
-        searchBar.val("")
+          // clears the user input
+          searchBar.val("")
+        }
       } else {
         console.log(result);
         var cardEl = $('<div>').addClass('card');
@@ -68,9 +67,6 @@ function celebritySearch(userInputTrimmed) {
 
 
 function astrologySearch(userInputTrimmed) {
-  // var userInput = searchBar.val();
-  // var userInputLowerCase = userInput.toLowerCase();
-  // var userInputTrimmed = userInputLowerCase.trim();
   const settings = {
     "async": true,
     "crossDomain": true,
@@ -116,6 +112,7 @@ function searchFunction(event) {
   }
 }
 
+
 function getLocalStorage() {
   var lsData= localStorage.getItem("userInputArr");
 
@@ -130,12 +127,13 @@ function getLocalStorage() {
         if (element === "capricorn" || element === "libra" || element === "aries" || element === "cancer" || element === "taurus" || element === "gemini" || element === "leo" || element === "virgo" || element === "scorpio" || element === "pisces" || element === "aquarius" || element === "sagittarius") {
           astrologySearch(element)
         } else {
-          celebritySearch(element)
+          celebritySearch(element, true)
         }
       }
     } 
   }
 }
+
 
 getLocalStorage()
 
