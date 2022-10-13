@@ -8,25 +8,11 @@ var pastSearches = $('#past-searches');
 
 var userInputArr = [];
 
-function getLocalStorage() {
-  var lsData= localStorage.getItem("userInputArr");
 
-  if (lsData !== null) {
-    var lsDataParsed = JSON.parse(lsData);
-    if (Array.isArray(lsDataParsed)) {
-      userInputArr = lsDataParsed;
-      console.log(lsDataParsed)
-    } 
-  }
-
-}
-
-getLocalStorage()
-
-function celebritySearch() {
-  var userInput = searchBar.val();
-  var userInputLowerCase = userInput.toLowerCase();
-  var userInputTrimmed = userInputLowerCase.trim();
+function celebritySearch(userInputTrimmed) {
+  // var userInput = searchBar.val();
+  // var userInputLowerCase = userInput.toLowerCase();
+  // var userInputTrimmed = userInputLowerCase.trim();
   $.ajax({
     method: 'GET',
     url: 'https://api.api-ninjas.com/v1/celebrity?name=' + userInputTrimmed,
@@ -81,10 +67,10 @@ function celebritySearch() {
 }
 
 
-function astrologySearch() {
-  var userInput = searchBar.val();
-  var userInputLowerCase = userInput.toLowerCase();
-  var userInputTrimmed = userInputLowerCase.trim();
+function astrologySearch(userInputTrimmed) {
+  // var userInput = searchBar.val();
+  // var userInputLowerCase = userInput.toLowerCase();
+  // var userInputTrimmed = userInputLowerCase.trim();
   const settings = {
     "async": true,
     "crossDomain": true,
@@ -124,12 +110,34 @@ function searchFunction(event) {
   console.log(localStorage.userInputArr)
 
   if (userInputTrimmed === "capricorn" || userInputTrimmed === "libra" || userInputTrimmed === "aries" || userInputTrimmed === "cancer" || userInputTrimmed === "taurus" || userInputTrimmed === "gemini" || userInputTrimmed === "leo" || userInputTrimmed === "virgo" || userInputTrimmed === "scorpio" || userInputTrimmed === "pisces" || userInputTrimmed === "aquarius" || userInputTrimmed === "sagittarius") {
-    astrologySearch()
+    astrologySearch(userInputTrimmed)
   } else {
-    celebritySearch()
+    celebritySearch(userInputTrimmed)
   }
 }
 
+function getLocalStorage() {
+  var lsData= localStorage.getItem("userInputArr");
+
+  if (lsData !== null) {
+    var lsDataParsed = JSON.parse(lsData);
+    if (Array.isArray(lsDataParsed)) {
+      userInputArr = lsDataParsed;
+      console.log(lsDataParsed)
+
+      for (let i = 0; i < userInputArr.length; i++) {
+        var element = userInputArr[i];
+        if (element === "capricorn" || element === "libra" || element === "aries" || element === "cancer" || element === "taurus" || element === "gemini" || element === "leo" || element === "virgo" || element === "scorpio" || element === "pisces" || element === "aquarius" || element === "sagittarius") {
+          astrologySearch(element)
+        } else {
+          celebritySearch(element)
+        }
+      }
+    } 
+  }
+}
+
+getLocalStorage()
 
 // click listener to search button
 searchBtn.on('click', searchFunction)
