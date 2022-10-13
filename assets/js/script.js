@@ -10,27 +10,15 @@ var userInputArr = [];
 
 function getLocalStorage() {
   var lsData= localStorage.getItem("userInputArr");
-  var lsDataParsed = JSON.parse(lsData);
 
-  userInputArr = lsDataParsed;
-  console.log(lsDataParsed)
-  
+  if (lsData !== null) {
+    var lsDataParsed = JSON.parse(lsData);
+    if (Array.isArray(lsDataParsed)) {
+      userInputArr = lsDataParsed;
+      console.log(lsDataParsed)
+    } 
+  }
 
-  // // undefined
-  // if (localStorage.inputValues === undefined) {
-  //   console.log('undefined')
-
-  // // returns true if the value is 0, "", or null
-  // } else if (!localStorage.inputValues === true) {
-  //   console.log('0, "", or null')
-
-  // // returns true if its anything but
-  // } else {
-  //   console.log("anything but")
-    
-
-
-  // }
 }
 
 getLocalStorage()
