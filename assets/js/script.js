@@ -35,13 +35,14 @@ function celebritySearch(userInputTrimmed, isPageLoading) {
         var cardEl = $('<div>').addClass('card');
         var nameEl = $('<h2>').text(result[0].name);
         var birthdayEl = $('<p>').text("Birthday: " + result[0].birthday);
-        cardEl.append(nameEl, birthdayEl)
+        var occupationElUL = $('<ul>').text("Occupations:")
+        cardEl.append(nameEl, birthdayEl, occupationElUL)
 
         // occupations
         var occupationArr = result[0].occupation
         for (let i = 0; i < occupationArr.length; i++) {
-          var occupationEl = $('<p>').text(occupationArr[i]);
-          cardEl.append(occupationEl)
+          var occupationElLI = $('<li>').text(occupationArr[i]);
+          occupationElUL.append(occupationElLI)
         }
 
         resultsSection.append(cardEl)
@@ -136,7 +137,6 @@ function getLocalStorage() {
 function clearResults() {
   localStorage.clear()
   location.reload()
-  // resultsSection.remove(cardEl)
 }
 
 
