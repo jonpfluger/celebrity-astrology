@@ -3,6 +3,7 @@ var astrologyAPIKey = "8ee4ec9d42msha4833b4bc3bb1b2p1bb387jsne21e89998379";
 
 var searchBar = $('#search-bar');
 var searchBtn = $('#search-btn');
+var clearBtn = $('#clear-btn');
 var resultsSection = $('#results-section');
 var pastSearches = $('#past-searches');
 
@@ -134,8 +135,17 @@ function getLocalStorage() {
   }
 }
 
+function clearResults() {
+  localStorage.clear()
+  location.reload()
+  // resultsSection.remove(cardEl)
+}
+
 
 getLocalStorage()
 
 // click listener to search button
 searchBtn.on('click', searchFunction)
+
+// click listener to clear button
+clearBtn.on('click', clearResults)
