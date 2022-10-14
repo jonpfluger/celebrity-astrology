@@ -35,13 +35,14 @@ function celebritySearch(userInputTrimmed, isPageLoading) {
         var cardEl = $('<div>').addClass('card');
         var nameEl = $('<h2>').text(result[0].name);
         var birthdayEl = $('<p>').text("Birthday: " + result[0].birthday);
-        cardEl.append(nameEl, birthdayEl)
+        var occupationElUL = $('<ul>').text("Occupations:")
+        cardEl.append(nameEl, birthdayEl, occupationElUL)
 
         // occupations
         var occupationArr = result[0].occupation
         for (let i = 0; i < occupationArr.length; i++) {
-          var occupationEl = $('<p>').text(occupationArr[i]);
-          cardEl.append(occupationEl)
+          var occupationElLI = $('<li>').text(occupationArr[i]);
+          occupationElUL.append(occupationElLI)
         }
 
         resultsSection.append(cardEl)
@@ -96,8 +97,6 @@ function astrologySearch(userInputTrimmed) {
 
 
 function searchFunction(event) {
-  event.preventDefault()
-
   var userInput = searchBar.val();
   var userInputLowerCase = userInput.toLowerCase();
   var userInputTrimmed = userInputLowerCase.trim();
@@ -138,7 +137,6 @@ function getLocalStorage() {
 function clearResults() {
   localStorage.clear()
   location.reload()
-  // resultsSection.remove(cardEl)
 }
 
 
@@ -146,6 +144,14 @@ getLocalStorage()
 
 // click listener to search button
 searchBtn.on('click', searchFunction)
+
+// keyboard enter event listener
+searchBar.keypress(function(event) {
+  var key = event.which;
+  if (key == 13) {
+    searchFunction()
+  }
+})
 
 // click listener to clear button
 clearBtn.on('click', clearResults)
