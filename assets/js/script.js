@@ -96,8 +96,6 @@ function astrologySearch(userInputTrimmed) {
 
 
 function searchFunction(event) {
-  event.preventDefault()
-
   var userInput = searchBar.val();
   var userInputLowerCase = userInput.toLowerCase();
   var userInputTrimmed = userInputLowerCase.trim();
@@ -146,6 +144,14 @@ getLocalStorage()
 
 // click listener to search button
 searchBtn.on('click', searchFunction)
+
+// keyboard enter event listener
+searchBar.keypress(function(event) {
+  var key = event.which;
+  if (key == 13) {
+    searchFunction()
+  }
+})
 
 // click listener to clear button
 clearBtn.on('click', clearResults)
