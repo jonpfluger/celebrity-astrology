@@ -32,8 +32,23 @@ function celebritySearch(userInputTrimmed, isPageLoading) {
         }
       } else {
         console.log(result);
+
+        // capitalize first letter of names
+        var resultName = result[0].name;
+        var resultNameArr = resultName.split(' ')
+        var emptyArr = []
+        for (let i = 0; i < resultNameArr.length; i++) {
+          var name = resultNameArr[i].split("");
+          var firstLetterUpper = name[0].toUpperCase()
+          name.shift()
+          name.unshift(firstLetterUpper)
+          emptyArr.push(name.join(""))
+        }
+        var finalResultName = emptyArr.join(" ")
+
+
         var cardEl = $('<div>').addClass('card');
-        var nameEl = $('<h2>').text(result[0].name);
+        var nameEl = $('<h2>').text(finalResultName);
         var birthdayEl = $('<p>').text("Birthday: " + result[0].birthday);
         var occupationElUL = $('<ul>').text("Occupations:")
         cardEl.append(nameEl, birthdayEl, occupationElUL)
@@ -82,8 +97,10 @@ function astrologySearch(userInputTrimmed) {
   
   $.ajax(settings).done(function (response) {
     console.log(response);
+
+    var astroFirstLetter = userInputTrimmed.charAt(0).toUpperCase()
     var cardEl = $('<div>').addClass('card');
-    var signEl = $('<h2>').text(userInputTrimmed);
+    var signEl = $('<h2>').text(astroFirstLetter + userInputTrimmed.slice(1));
     var dateRangeEl = $('<p>').text("Date Range: " + response.date_range);
     var descriptionEl = $('<p>').text("Daily horoscope: " + response.description);
     var luckyTimeEl = $('<p>').text("Lucky time: " + response.lucky_time);
