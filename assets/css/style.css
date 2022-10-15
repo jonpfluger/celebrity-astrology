@@ -92,7 +92,6 @@ main {
     text-align: left;
     font-size: 18px;
     box-shadow: 0 30px 40px rgba(248, 245, 245, 0.1);
-    
 }
 
 h2 {
@@ -101,6 +100,10 @@ h2 {
 
 p {
   padding-left: 15px;
+}
+
+.card:hover {
+  border-color: rgba(0,0,0,0.2);
 }
 
 
@@ -128,6 +131,14 @@ p {
   }
 }
 
-/* .card:hover {
-    border-color: rgba(0,0,0,0.2);
-} */
+@media screen and (max-width: 800px) {
+  #description {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #Btn-container {
+    display: block;
+  }
+}
