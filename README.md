@@ -26,6 +26,8 @@ then I am able to see the date range of that sign, a daily horoscope, and its lu
 
 ## Screenshot
 
+![A webpage that contains a search bar, a visual background of stars in outer space, and cards with titles and information.](./assets/images/screenshot.png)
+
 ## Link
 
 https://jonpfluger.github.io/celebrity-astrology/
