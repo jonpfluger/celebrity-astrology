@@ -24,6 +24,7 @@ header {
     text-align: center;
     background-image: linear-gradient(to right, var(--lightblue), var(--darkblue));
     border-bottom: 3px black solid;
+    z-index: 9999;
 }
 
 
